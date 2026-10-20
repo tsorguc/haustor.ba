@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+  <div class="col-md-5 col-lg-4">
+    <div class="card card-haustor mt-4">
+      <div class="card-body p-4">
+        <div class="text-center mb-4">
+          <i class="fa-solid fa-circle-user fa-3x text-primary mb-2"></i>
+          <h4 class="fw-bold">Prijava na sistem</h4>
+          <p class="text-muted small">Pristupite svom Haustor.ba računu</p>
+        </div>
+        <form
+          onsubmit="
+            event.preventDefault();
+            window.location.hash = '#/resident';
+          "
+        >
+          <div class="mb-3">
+            <label class="form-label small fw-semibold">Email adresa</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="ime@primjer.ba"
+              value="stanar@haustor.ba"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-semibold">Lozinka</label>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="••••••••"
+              value="lozinka123"
+              required
+            />
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="rememberMe" />
+            <label class="form-check-label small" for="rememberMe"
+              >Zapamti me</label
+            >
+          </div>
+          <button type="submit" class="btn btn-primary w-100 mb-3 fw-semibold">
+            Prijavi se
+          </button>
+        </form>
+        <div class="text-center">
+          <span class="small text-muted">Nemate račun? </span>
+          <a
+            href="#/register"
+            class="small fw-semibold text-primary text-decoration-none"
+            >Registrujte se ovdje</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

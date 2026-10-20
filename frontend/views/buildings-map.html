@@ -1,0 +1,122 @@
+<div class="card card-haustor mb-4">
+  <div class="card-body p-4">
+    <div
+      class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2"
+    >
+      <div>
+        <h4 class="fw-bold mb-1">
+          <i class="fa-solid fa-map-location-dot text-primary me-2"></i
+          >Upravljani objekti i zgrade
+        </h4>
+        <p class="text-muted small mb-0">
+          Integracija eksternog API-ja (OpenStreetMap Nominatim geokodiranje)
+        </p>
+      </div>
+      <div>
+        <select class="form-select form-select-sm">
+          <option value="all" selected>Svi upravljani objekti</option>
+          <option value="1">Haustor Grbavička 14, Sarajevo</option>
+          <option value="2">Haustor Zmaja od Bosne 34, Sarajevo</option>
+          <option value="3">Haustor Maršala Tita 22, Sarajevo</option>
+        </select>
+      </div>
+    </div>
+
+    <form
+      class="row g-2 mb-4"
+      onsubmit="
+        event.preventDefault();
+        alert(
+          'Pretraga lokacije putem OpenStreetMap Nominatim servisa (Statički prikaz)',
+        );
+      "
+    >
+      <div class="col-md-9">
+        <div class="input-group">
+          <span class="input-group-text bg-white text-muted">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Pretraži adresu zgrade u Sarajevu (npr. Grbavička, Zmaja od Bosne)..."
+          />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary w-100 fw-semibold">
+          <i class="fa-solid fa-location-crosshairs me-1"></i> Pronađi lokaciju
+        </button>
+      </div>
+    </form>
+
+    <div class="map-placeholder-box p-4">
+      <div>
+        <i class="fa-solid fa-map-pin fa-3x text-primary mb-3"></i>
+        <h5 class="fw-bold mb-2">Prikaz geolokacija objekata</h5>
+        <p class="text-muted mb-2 mx-auto" style="max-width: 600px">
+          Interaktivna mapa zgrada: U Milestone 3 ovdje će biti prikazane
+          geolokacije objekata i žarišta prijavljenih kvarova.
+        </p>
+        <span class="badge bg-light text-dark border">
+          <i class="fa-solid fa-compass me-1 text-primary"></i> Sarajevo
+          (43.8563° N, 18.4131° E)
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-4">
+    <div class="card card-haustor h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <h6 class="fw-bold mb-0">Haustor Grbavička 14</h6>
+          <span class="badge bg-primary">24 stana</span>
+        </div>
+        <p class="text-muted small mb-2">
+          <i class="fa-solid fa-location-dot me-1"></i> Grbavička 14, 71000
+          Sarajevo
+        </p>
+        <small class="text-muted d-block"
+          >Koordinate: <code>43.8516, 18.3964</code></small
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-haustor h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <h6 class="fw-bold mb-0">Haustor Zmaja od Bosne 34</h6>
+          <span class="badge bg-primary">36 stanova</span>
+        </div>
+        <p class="text-muted small mb-2">
+          <i class="fa-solid fa-location-dot me-1"></i> Zmaja od Bosne 34, 71000
+          Sarajevo
+        </p>
+        <small class="text-muted d-block"
+          >Koordinate: <code>43.8548, 18.3991</code></small
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-haustor h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <h6 class="fw-bold mb-0">Haustor Maršala Tita 22</h6>
+          <span class="badge bg-primary">18 stanova</span>
+        </div>
+        <p class="text-muted small mb-2">
+          <i class="fa-solid fa-location-dot me-1"></i> Maršala Tita 22, 71000
+          Sarajevo
+        </p>
+        <small class="text-muted d-block"
+          >Koordinate: <code>43.8589, 18.4214</code></small
+        >
+      </div>
+    </div>
+  </div>
+</div>

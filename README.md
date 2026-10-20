@@ -179,7 +179,26 @@ erDiagram
 
 ---
 
-## 5. Local Setup & Installation Instructions
+## 5. Brand and Visual Identity
+
+- **Brand Slogan & Mission:** *"Brza prijava, siguran dom"* (*Fast reporting, safe home*) — conveying reliability, structural trust, and rapid response between residents and building managers (*upravitelji*).
+- **Typography:**
+  - **Headings & Brand Wordmark:** `Plus Jakarta Sans` (600/700 weights) for modern geometric clarity.
+  - **Body & UI Controls:** `Inter` (400/500/600 weights) for high legibility across data tables, forms, and status badges.
+- **Color Palette:**
+
+| Token / Role | CSS Custom Property | Hex Code | Usage |
+| :--- | :--- | :--- | :--- |
+| **Primary Brand** | `--haustor-primary` | `#1E3A8A` | Primary action buttons, brand icon box, active navigation indicators |
+| **Secondary Accent** | `--haustor-secondary` | `#3B82F6` | Interactive hover states, focus rings, *In Progress* (`U toku`) status indicators |
+| **Urgent Accent** | `--haustor-urgent` | `#EA580C` | *Urgent* (`Hitan`) priority badges and critical maintenance alerts |
+| **Dark Text** | `--haustor-dark-text` | `#1E293B` | High-contrast headings and primary body typography |
+| **Neutral Background** | `--haustor-bg` | `#F8FAFC` | Application canvas and subtle container backgrounds |
+| **Border & Divider** | `--haustor-border` | `#E2E8F0` | Card borders (`.card-haustor`), navbar divider (`.navbar-haustor`), and table lines |
+
+---
+
+## 6. Local Setup & Installation Instructions
 
 ### Prerequisites
 - PHP 8.0+ (with `pdo_mysql` and `mbstring` extensions enabled)
@@ -219,7 +238,7 @@ Start Apache and MySQL via XAMPP Control Panel and navigate to `http://localhost
 
 ---
 
-## 6. API Documentation & Live Deployment
+## 7. API Documentation & Live Deployment
 
 - **Swagger / OpenAPI Documentation:** `[TBD — http://localhost/haustor.ba/backend/docs/]`
 - **Live Deployment URL:** `[TBD — Placeholder for Production URL]`

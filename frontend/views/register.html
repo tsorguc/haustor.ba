@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+  <div class="col-md-7 col-lg-6">
+    <div class="card card-haustor mt-2">
+      <div class="card-body p-4">
+        <h4 class="fw-bold mb-1">Kreirajte novi račun</h4>
+        <p class="text-muted small mb-4">
+          Registracija za stanare i predstavnike upravitelja zgrada
+        </p>
+        <form
+          onsubmit="
+            event.preventDefault();
+            window.location.hash = '#/login';
+          "
+        >
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label class="form-label small fw-semibold">Ime</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Tarik"
+                required
+              />
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label small fw-semibold">Prezime</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Sorguč"
+                required
+              />
+            </div>
+            <div class="col-12">
+              <label class="form-label small fw-semibold">Email adresa</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="tarik@primjer.ba"
+                required
+              />
+            </div>
+            <div class="col-12">
+              <label class="form-label small fw-semibold">Broj telefona</label>
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="+387 61 000 000"
+              />
+            </div>
+            <div class="col-12">
+              <label class="form-label small fw-semibold"
+                >Uloga na sistemu</label
+              >
+              <select class="form-select" required>
+                <option value="resident" selected>Stanar</option>
+                <option value="manager">Upravitelj zgrade</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label small fw-semibold">Lozinka</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label small fw-semibold"
+                >Potvrda lozinke</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 mt-4 fw-semibold">
+            Registruj se
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
