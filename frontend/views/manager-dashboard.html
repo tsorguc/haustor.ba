@@ -1,0 +1,145 @@
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-xl-3">
+    <div class="card card-haustor p-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <span class="text-muted small fw-semibold">Ukupno prijava</span>
+          <h3 class="fw-bold mb-0">24</h3>
+        </div>
+        <div class="bg-primary text-white p-3 rounded-circle">
+          <i class="fa-solid fa-folder-open fa-lg"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="card card-haustor p-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <span class="text-muted small fw-semibold">Na čekanju</span>
+          <h3 class="fw-bold mb-0 text-secondary">7</h3>
+        </div>
+        <div class="bg-secondary text-white p-3 rounded-circle">
+          <i class="fa-solid fa-clock fa-lg"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="card card-haustor p-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <span class="text-muted small fw-semibold">U toku</span>
+          <h3 class="fw-bold mb-0 text-primary">5</h3>
+        </div>
+        <div class="bg-primary text-white p-3 rounded-circle">
+          <i class="fa-solid fa-person-digging fa-lg"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="card card-haustor p-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <span class="text-muted small fw-semibold">Riješeno</span>
+          <h3 class="fw-bold mb-0 text-success">12</h3>
+        </div>
+        <div class="bg-success text-white p-3 rounded-circle">
+          <i class="fa-solid fa-circle-check fa-lg"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card card-haustor">
+  <div
+    class="card-header py-3 d-flex flex-wrap justify-content-between align-items-center gap-2"
+  >
+    <h5 class="card-title mb-0 fw-bold">
+      <i class="fa-solid fa-building-user text-primary me-2"></i>Pristigli
+      zahtjevi za održavanje (Pregled upravitelja)
+    </h5>
+    <div class="btn-group btn-group-sm">
+      <button class="btn btn-primary active">Sve</button>
+      <button class="btn btn-outline-secondary">Na čekanju</button>
+      <button class="btn btn-outline-secondary">U toku</button>
+      <button class="btn btn-outline-secondary">Riješeno</button>
+    </div>
+  </div>
+  <div class="card-body p-0">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Prijava / Kvar</th>
+            <th>Objekat i stan</th>
+            <th>Stanar</th>
+            <th>Prioritet</th>
+            <th>Status</th>
+            <th>Akcija</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="fw-semibold">Curenje radijatora u dnevnom boravku</div>
+              <small class="text-muted">Grijanje</small>
+            </td>
+            <td>Grbavička 14 (Stan 4B)</td>
+            <td>Damir Sorguč</td>
+            <td><span class="badge badge-priority-urgent">Hitan</span></td>
+            <td><span class="badge badge-status-pending">Na čekanju</span></td>
+            <td>
+              <select class="form-select form-select-sm w-auto">
+                <option value="pending" selected>Na čekanju</option>
+                <option value="in_progress">U toku</option>
+                <option value="resolved">Riješeno</option>
+                <option value="rejected">Odbijeno</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="fw-semibold">
+                Lift zaglavljen između 2. i 3. sprata
+              </div>
+              <small class="text-muted">Lift</small>
+            </td>
+            <td>Maršala Tita 22 (Stan 12)</td>
+            <td>Amal Sorguč</td>
+            <td><span class="badge badge-priority-urgent">Hitan</span></td>
+            <td><span class="badge badge-status-inprogress">U toku</span></td>
+            <td>
+              <select class="form-select form-select-sm w-auto">
+                <option value="pending">Na čekanju</option>
+                <option value="in_progress" selected>U toku</option>
+                <option value="resolved">Riješeno</option>
+                <option value="rejected">Odbijeno</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="fw-semibold">Kvar na interfonu na ulazu</div>
+              <small class="text-muted">Elektroinstalacije</small>
+            </td>
+            <td>Zmaja od Bosne 34 (Stan 8)</td>
+            <td>Tarik Sorguč</td>
+            <td><span class="badge badge-priority-medium">Srednji</span></td>
+            <td><span class="badge badge-status-resolved">Riješeno</span></td>
+            <td>
+              <select class="form-select form-select-sm w-auto">
+                <option value="pending">Na čekanju</option>
+                <option value="in_progress">U toku</option>
+                <option value="resolved" selected>Riješeno</option>
+                <option value="rejected">Odbijeno</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

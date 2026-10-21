@@ -1,0 +1,132 @@
+<div class="row g-4">
+  <div class="col-lg-5">
+    <div class="card card-haustor">
+      <div class="card-header py-3">
+        <h5 class="card-title mb-0 fw-bold">
+          <i class="fa-solid fa-triangle-exclamation text-warning me-2"></i
+          >Prijava kvara ili zahtjeva za održavanje
+        </h5>
+      </div>
+      <div class="card-body">
+        <form
+          onsubmit="
+            event.preventDefault();
+            alert('Prijava kvara je uspješno poslana (Statički prikaz)');
+          "
+        >
+          <div class="mb-3">
+            <label class="form-label small fw-semibold">Kategorija kvara</label>
+            <select class="form-select" required>
+              <option value="1">Vodoinstalacije</option>
+              <option value="2">Elektroinstalacije</option>
+              <option value="3">Lift</option>
+              <option value="4">Krov i zajedničke prostorije</option>
+              <option value="5">Grijanje</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-semibold">Prioritet</label>
+            <select class="form-select" required>
+              <option value="low">Nizak - Redovno održavanje</option>
+              <option value="medium" selected>
+                Srednji - Potrebna intervencija
+              </option>
+              <option value="high">Visok - Utječe na uslove stanovanja</option>
+              <option value="urgent">
+                Hitan - Curenje vode, nestanak struje, zastoj lifta
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-semibold"
+              >Naslov prijave / Sažetak kvara</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="npr. Curenje vode na 3. spratu"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-semibold"
+              >Detaljan opis kvara</label
+            >
+            <textarea
+              class="form-control"
+              rows="4"
+              placeholder="Navedite lokaciju kvara, obim oštećenja i zapažanja..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 fw-semibold">
+            <i class="fa-solid fa-paper-plane me-1"></i> Pošalji prijavu
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-7">
+    <div class="card card-haustor">
+      <div
+        class="card-header py-3 d-flex justify-content-between align-items-center"
+      >
+        <h5 class="card-title mb-0 fw-bold">
+          <i class="fa-solid fa-list-check text-primary me-2"></i>Moje aktivne
+          prijave
+        </h5>
+        <span class="badge bg-primary">Ukupno prijava: 4</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>ID</th>
+                <th>Naslov</th>
+                <th>Kategorija</th>
+                <th>Prioritet</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#101</td>
+                <td class="fw-semibold">Kvar na ulaznim vratima haustora</td>
+                <td>Krov i zajedničke prostorije</td>
+                <td>
+                  <span class="badge badge-priority-medium">Srednji</span>
+                </td>
+                <td>
+                  <span class="badge badge-status-inprogress">U toku</span>
+                </td>
+              </tr>
+              <tr>
+                <td>#102</td>
+                <td class="fw-semibold">Curenje glavnog ventila u podrumu</td>
+                <td>Vodoinstalacije</td>
+                <td><span class="badge badge-priority-urgent">Hitan</span></td>
+                <td><span class="badge badge-status-resolved">Riješeno</span></td>
+              </tr>
+              <tr>
+                <td>#103</td>
+                <td class="fw-semibold">Zamjena sijalica na 4. spratu</td>
+                <td>Elektroinstalacije</td>
+                <td><span class="badge badge-priority-low">Nizak</span></td>
+                <td><span class="badge badge-status-pending">Na čekanju</span></td>
+              </tr>
+              <tr>
+                <td>#104</td>
+                <td class="fw-semibold">Zahtjev za ugradnju privatne klime</td>
+                <td>Grijanje</td>
+                <td><span class="badge badge-priority-high">Visok</span></td>
+                <td><span class="badge badge-status-rejected">Odbijeno</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
