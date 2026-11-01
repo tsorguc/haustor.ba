@@ -54,3 +54,37 @@ The AI tools acted strictly as **execution partners**—generating boilerplate m
 - **Context / Task:** Designing the main application shell (`frontend/index.html`), navigation styling (`frontend/css/style.css`), and hash-based SPA router (`frontend/js/app.js`).
 - **AI Output Issue / Refinement Needed:** The initial layout used a standard horizontal top navbar (`navbar-expand-lg`). While functional for simple landing pages, a top navbar is suboptimal for a data-dense property management dashboard and can remain expanded after clicking hash links in a Single Page Application on mobile devices. Additionally, combining Bootstrap's `.offcanvas-lg` with `.d-flex` on `<aside>` requires explicit responsive handling so the offcanvas stays hidden on viewports `< 992px` when closed.
 - **Human Correction / Fix Applied:** Directed a full layout refactor to replace the top navbar with a persistent 260px left sidebar (`aside.sidebar-container`) on desktop (`>= 992px`) and a sticky mobile top header triggering a 280px Bootstrap `#sidebarOffcanvas` drawer on screens `< 992px`. Added CSS rules for `.nav-pills` active/hover states and responsive visibility, and updated `navigate()` in `frontend/js/app.js` to programmatically invoke `offcanvasInstance.hide()` when `window.innerWidth < 992` so the mobile drawer closes automatically after selecting a route.
+
+---
+
+## Milestone 2: Database Schema (`haustor.sql`) & PDO Data Access Object (DAO) Layer
+
+### 1. Tools Used & Roles
+- **Antigravity CLI (Implementation Assistant):** Used to generate the MySQL relational schema and Bosnian seed data script (`backend/haustor.sql`), configure local database credentials (`backend/config/config.php`), and implement the PDO-based Data Access Object hierarchy (`BaseDao` and the 5 entity DAO classes in `backend/dao/`).
+
+---
+
+### 2. Key Tasks Automated
+1. **Relational Database DDL & Seed Script (`backend/haustor.sql`):** Generated `CREATE TABLE` statements for all 5 entities (`users`, `buildings`, `apartments`, `categories`, and `maintenance_requests`) using `InnoDB` and `utf8mb4_unicode_ci`, including `ENUM` columns (`role`, `default_priority`, `priority`, `status`), composite uniqueness constraints, foreign key `ON DELETE` / `ON UPDATE` actions, and localized Bosnian `INSERT INTO` seed records for Sarajevo residential buildings.
+2. **Base PDO Data Access Layer (`backend/dao/BaseDao.php`):** Implemented a centralized PDO connection class reading credentials from `backend/config/config.php` with `PDO::ATTR_EMULATE_PREPARES => false` and `PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION`, alongside reusable prepared-statement helper methods (`execute()`, `query()`, `queryUnique()`, `insert()`, `update()`, `delete()`).
+3. **Entity-Specific DAO Classes (`backend/dao/`):** Created `UserDao.php`, `BuildingDao.php`, `ApartmentDao.php`, `CategoryDao.php`, and `MaintenanceRequestDao.php` extending `BaseDao`, each providing full CRUD operations (`add($data)`, `get_all()`, `get_by_id($id)`, `update($id, $data)`, `delete($id)`) and relational `JOIN` lookups via prepared statements.
+
+---
+
+### 3. Key Prompts Used
+- *"Please implement the backend Database schema and DAO (Data Access Object) layer for Milestone 2 of the Haustor.ba project on the current milestone2 branch..."*
+
+---
+
+### 4. Issues & Fixes (Human Review & Corrections of AI Output)
+
+#### Case 1: Foreign Key Constraint Fix (`backend/haustor.sql`)
+- **Context / Task:** Executing the `DROP TABLE IF EXISTS` and `CREATE TABLE` statements in `backend/haustor.sql` to initialize and re-seed the relational schema.
+- **AI Output Issue / Refinement Needed:** The initial SQL script attempted to drop tables in the wrong order, causing a foreign key constraint failure when re-importing the schema over an existing database.
+- **Human Correction / Fix Applied:** Directed the AI to add `SET FOREIGN_KEY_CHECKS = 0;` at the top of `haustor.sql` and `SET FOREIGN_KEY_CHECKS = 1;` at the bottom so that tables with foreign key dependencies can be cleanly dropped, recreated, and seeded without referential constraint errors.
+
+#### Case 2: PDO Fetch Mode Adjustment (`backend/dao/BaseDao.php`)
+- **Context / Task:** Configuring the PDO database connection inside `BaseDao::__construct()` (`backend/dao/BaseDao.php`).
+- **AI Output Issue / Refinement Needed:** The generated `BaseDao` initially lacked the default fetch mode configuration, causing PDO queries to default to `PDO::FETCH_BOTH` (returning both associative keys and duplicate numeric-indexed keys for every column).
+- **Human Correction / Fix Applied:** Directed the AI to explicitly set `PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC` in the PDO connection options so that the DAO layer returns clean associative arrays for the frontend API instead of duplicate indexed arrays.
+
