@@ -36,6 +36,17 @@ class ErrorMiddleware
         Flight::map('notFound', function (): void {
             $this->handleNotFound();
         });
+
+        Flight::map('methodNotFound', function (): void {
+            $method = $this->resolveMethod();
+            $uri = $this->resolveUri();
+
+            if ($this->requestLogger !== null) {
+                $this->requestLogger->logRequest($method, $uri, 405, 'METHOD_NOT_ALLOWED');
+            }
+
+            $this->sendJsonError('Method not allowed.', 405);
+        });
     }
 
     /**
@@ -144,7 +155,11 @@ class ErrorMiddleware
         ];
 
         if (class_exists('Flight')) {
+            Flight::response()->clearBody();
             Flight::json($payload, $statusCode);
+            if (!Flight::response()->sent()) {
+                Flight::response()->send();
+            }
             return;
         }
 

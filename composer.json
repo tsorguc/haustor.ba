@@ -1,0 +1,16 @@
+{
+    "name": "haustor/haustor-ba",
+    "description": "Haustor.ba - Apartment building management and maintenance reporting REST API",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "flightphp/core": "^3.0"
+    },
+    "autoload": {
+        "classmap": [
+            "backend/dao",
+            "backend/services",
+            "backend/middleware"
+        ]
+    }
+}
